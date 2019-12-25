@@ -1,8 +1,9 @@
 import React from 'react';
+import Shop from './views/Shop';
 
 
 const App = () => (
-  <div>fsfsaf</div>
+  <Shop></Shop>
 );
 
 export default App;
