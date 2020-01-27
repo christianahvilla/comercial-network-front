@@ -59,7 +59,7 @@ class Navigation extends Component {
               open={this.state.sidebarOpen}
               onSetOpen={this.onSetSidebarOpen}
               styles={{ sidebar: { background: "#FFFFFF"} }}
-              >
+              >children
             </Sidebar>
               :
             null
