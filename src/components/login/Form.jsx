@@ -2,7 +2,8 @@ import React from 'react';
 import DefaultButton from '../common/Button';
 import {Form} from 'react-bootstrap';
 import {login} from './Service';
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
+import './assets/style.css';
 
 function LoginForm (props) {
 
@@ -23,21 +24,21 @@ function LoginForm (props) {
     };
 
     return (
-        <div style={{width: '40%', marginLeft: '30%', marginRight: '30%', marginTop: '50px'}}>
+        <div id='loginForm'>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group>
                     <Form.Label><i className="fa fa-user-circle" aria-hidden="true"></i> Email</Form.Label>
                     <Form.Control type="email" name="email" placeholder="name@example.com" defaultValue="" ref={register({ required: true })}/>
-                    {errors.email && <span style={{color:"red"}}>Campo requerido</span>}
+                    {errors.email && <span className='requiredText'>Campo requerido</span>}
                 </Form.Group>
                 <hr/>
                 <Form.Group>
                     <Form.Label><i className="fa fa-lock" aria-hidden="true"></i> Password</Form.Label>
                     <Form.Control type="password" name="password" ref={register({ required: true })}/>
-                    {errors.password && <span style={{color:"red"}}>Campo requerido</span>}
+                    {errors.password && <span className='requiredText'>Campo requerido</span>}
                 </Form.Group>            
                 <hr/>
-                <div style={{width: '100%', textAlign: 'center'}}>
+                <div id='sumbitBtn'>
                     <DefaultButton type="submit" variant="primary" text="Iniciar Sesión" onClick={() => handleSubmit()}/>
                 </div>
             </Form>

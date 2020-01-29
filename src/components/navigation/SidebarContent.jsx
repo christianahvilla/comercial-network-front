@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './assets/style.css';
 
 const SidebarContent = () =>  {
     return (
-        <div style={{margin:10, color: '#000000'}}>
-            <div style={{textAlign: 'center', fontWeight: 'bold', fontSize: '18pt', color: '#000000'}}>Menú</div>
+        <div id='sidebar'>
+            <div id='sidebarTitle'>Menú</div>
             <hr></hr>
             <ul className="navbar-nav mr-auto">
                 <Link to={'/auth/shop'} className="nav-link"><i className="fa fa-home" aria-hidden="true"></i> Negocio</Link>
