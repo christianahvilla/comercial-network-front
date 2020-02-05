@@ -30,6 +30,16 @@
         "react/jsx-indent": ["error", 4],
 
         // Indent props with 4 spaces
-        "react/jsx-indent-props": ["error", 4]
+        "react/jsx-indent-props": ["error", 4],
+
+        "max-len": [2, 200, 4, {"ignoreUrls": true}],
+
+        "react/jsx-props-no-spreading": ["off"],
+        
+        "react/prop-types": 0,
+
+        "arrow-body-style": 0,
+
+        "no-useless-escape": 0
     }
 }

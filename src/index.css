@@ -1,9 +1,29 @@
-.btn-margin {
-    margin: 5px;
+body {
+    background: #f6f7f9;
+}
+html,
+body,
+div#root {
+    height: 100vh;
 }
 
-.mainBody {
-    width: 90%;
-    padding: 30px;
-    margin: auto;
+.MuiIconButton-colorInherit[title='Editar'] {
+    color: #558b2f!important;
+}
+
+.MuiIconButton-colorInherit[title='Agregar'] {
+    color: #0C61FF!important;
+}
+
+.MuiIconButton-colorInherit[title='Eliminar'] {
+    color: #e53935!important;
+}
+
+.MuiIconButton-colorInherit {
+    color: #707070!important;
+}
+
+.MTableToolbar-root-145 {
+    background-color: #f5f5f5;
+    box-shadow: 0 5px 4px 0 rgba(0, 0, 0, 0.2);
 }

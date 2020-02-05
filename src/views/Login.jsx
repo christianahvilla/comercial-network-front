@@ -1,19 +1,19 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import DefaultTitle from '../components/common/Title';
+import { Grid } from '@material-ui/core';
+import clsx from 'clsx';
 import Form from '../components/login/Form';
+import mainStyles from './Style';
 
 const Login = () => {
-    if (localStorage.getItem('name')) {
-        return <Redirect to="/auth/shop" />;
-    }
-
+    const classes = mainStyles();
     return (
-        <div className="mainBody">
-            <DefaultTitle text="Login" />
-            <br />
-            <Form />
-        </div>
+        <Grid className={clsx(classes.root)} container spacing={3}>
+            <Grid item xs={false} sm={4} />
+            <Grid item xs={12} sm={4}>
+                <Form />
+            </Grid>
+            <Grid item xs={false} sm={4} />
+        </Grid>
     );
 };
 
