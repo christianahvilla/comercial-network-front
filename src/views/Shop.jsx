@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Table from '../components/shop/Table';
 import ShopModal from '../components/shop/Modal';
 import DefaultButton from '../components/common/Button';
 import DefaultTitle from '../components/common/Title';
 
 const Shop = () => {
     const [show, setShow] = useState(false);
+
     return (
         <div className="mainBody">
             <ShopModal
@@ -22,7 +22,6 @@ const Shop = () => {
                 onClick={() => setShow(!show)}
             />
             <br />
-            <Table />
         </div>
     );
 };
