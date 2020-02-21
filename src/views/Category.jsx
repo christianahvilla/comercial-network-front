@@ -23,7 +23,10 @@ const Category = () => {
     const dispacth = useDispatch();
     const classes = mainStyles();
     const {
-        loading, categories, status, error,
+        loading,
+        categories,
+        status,
+        error,
     } = categoryState;
 
     useEffect(() => {
@@ -42,6 +45,7 @@ const Category = () => {
         if (!loading) {
             dispacth(categoryFetchActions());
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleClose = useCallback(() => {
@@ -56,7 +60,7 @@ const Category = () => {
     ];
 
     const onDelete = (oldData) => {
-        const { id } = oldData.id;
+        const { id } = oldData;
         dispacth(categoryDeleteActions(id));
     };
 
@@ -69,7 +73,7 @@ const Category = () => {
         return dispacth(categorySaveActions(newCategory));
     };
 
-    const onUpdate = (oldData, newData) => {
+    const onUpdate = (newData) => {
         const { category, id } = newData;
         const newCategory = {
             category,
@@ -104,15 +108,23 @@ const Category = () => {
                         <br />
                         <br />
                     </Grid>
-                    {loading ? <DefaultProgress color="primary" /> : (
-                        <DefaultTable
-                            data={categories}
-                            columns={columns}
-                            onAdd={onAdd}
-                            onDelete={onDelete}
-                            onUpdate={onUpdate}
-                        />
-                    )}
+                    {loading
+                        ? (
+                            <Grid container className={clsx(classes.root)} spacing={3}>
+                                <Grid item className={clsx(classes.progress)}>
+                                    <DefaultProgress color="primary" />
+                                </Grid>
+                            </Grid>
+                        )
+                        : (
+                            <DefaultTable
+                                data={categories}
+                                columns={columns}
+                                onAdd={onAdd}
+                                onDelete={onDelete}
+                                onUpdate={onUpdate}
+                            />
+                        )}
                 </Grid>
                 <Grid item xs={false} sm={1} />
             </Grid>

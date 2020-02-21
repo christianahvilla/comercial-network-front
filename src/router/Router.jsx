@@ -13,7 +13,7 @@ const LoginRoute = ({ component: Component, ...rest }) => {
             render={(props) => (authenticated ? (
                 <Component {...props} />
             ) : (
-                <Redirect to={{ pathname: '/login' }} />
+                <Redirect to={{ pathname: '/' }} />
             ))}
         />
     );
@@ -27,7 +27,7 @@ const LogoutRoute = ({ component: Component, ...rest }) => {
             render={(props) => (!authenticated ? (
                 <Component {...props} />
             ) : (
-                <Redirect to={{ pathname: '/account/home' }} />
+                <Redirect to={{ pathname: '/account' }} />
             ))}
         />
     );
@@ -36,7 +36,7 @@ const LogoutRoute = ({ component: Component, ...rest }) => {
 const Router = () => {
     return (
         <Switch>
-            <LogoutRoute path="/login" component={Login} />
+            <LogoutRoute exact path="/" component={Login} />
             <LoginRoute path="/account" component={Layout} />
             <Route path="*" component={NotFound} />
         </Switch>

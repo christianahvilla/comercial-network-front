@@ -3,7 +3,12 @@ import Button from '@material-ui/core/Button';
 
 const DefaultButton = (props) => {
     const {
-        variant, color, onClick, text, className,
+        variant,
+        color,
+        onClick,
+        text,
+        className,
+        disabled,
     } = props;
     return (
         <Button
@@ -11,6 +16,7 @@ const DefaultButton = (props) => {
             color={color}
             variant={variant}
             onClick={onClick}
+            disabled={disabled}
         >
             {text}
         </Button>

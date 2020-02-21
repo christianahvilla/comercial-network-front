@@ -37,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
     cardActions: {
         display: 'block',
     },
+    wrapper: {
+        margin: theme.spacing(1),
+        position: 'relative',
+    },
+    buttonProgress: {
+        position: 'absolute',
+        right: 0,
+        marginRight: 55,
+        marginTop: 5,
+    },
 }));
 
 export default useStyles;

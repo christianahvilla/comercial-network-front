@@ -57,8 +57,8 @@ const DefaultTable = (props) => {
         onRowAdd: (newData) => new Promise((resolve) => {
             resolve(onAdd(newData));
         }),
-        onRowUpdate: (newData, oldData) => new Promise((resolve) => {
-            resolve(onUpdate(newData, oldData));
+        onRowUpdate: (newData) => new Promise((resolve) => {
+            resolve(onUpdate(newData));
         }),
         onRowDelete: (oldData) => new Promise((resolve) => {
             resolve(onDelete(oldData));

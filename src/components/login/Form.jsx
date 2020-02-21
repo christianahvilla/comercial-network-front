@@ -18,10 +18,11 @@ import useStyles from './Style';
 import DefaultButton from '../common/Button';
 import { loginActions } from '../../actions/AuthActions';
 import DefaultTitle from '../common/Title';
+import DefaultProgress from '../common/CircularProgress';
 
 const LoginForm = () => {
     const classes = useStyles();
-    const error = useSelector((state) => state.authState.error);
+    const authState = useSelector((state) => state.authState);
     const [values, setValues] = useState({
         user: '',
         password: '',
@@ -29,13 +30,25 @@ const LoginForm = () => {
         validateUser: false,
         validatePassword: false,
     });
+    const {
+        error,
+        loading,
+        authenticated,
+    } = authState;
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (error) {
             setValues({ ...values, validateUser: true, validatePassword: true });
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [error]);
+
+    useEffect(() => {
+        if (authenticated) {
+            window.location.reload();
+        }
+    }, [authenticated]);
 
     const handleChange = (prop) => (event) => {
         setValues({
@@ -65,7 +78,7 @@ const LoginForm = () => {
                 email: values.user,
                 password: values.password,
             };
-            dispatch(loginActions(credentials)).then(() => (!error ? window.location.replace('/account/home') : null));
+            dispatch(loginActions(credentials));
         }
     };
 
@@ -145,13 +158,17 @@ const LoginForm = () => {
                 />
             </CardContent>
             <CardActions className={clsx(classes.cardActions)}>
-                <DefaultButton
-                    className={clsx(classes.button)}
-                    color="primary"
-                    text="Acceder"
-                    variant="contained"
-                    onClick={login}
-                />
+                <div className={clsx(classes.wrapper)}>
+                    <DefaultButton
+                        className={clsx(classes.button)}
+                        color="primary"
+                        text="Acceder"
+                        variant="contained"
+                        disabled={loading}
+                        onClick={login}
+                    />
+                </div>
+                {loading && <DefaultProgress size={24} className={clsx(classes.buttonProgress)} />}
             </CardActions>
         </Card>
     );
