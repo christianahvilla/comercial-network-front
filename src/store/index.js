@@ -3,11 +3,8 @@ import { persistReducer, persistStore } from 'redux-persist';
 import { createStore, applyMiddleware } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import thunkMiddleware from 'redux-thunk';
-// import { composeWithDevTools } from 'remote-redux-devtools';
 import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers';
-
-// const loggerMiddleware = createLogger();
 
 const persistConfig = {
     key: 'root',

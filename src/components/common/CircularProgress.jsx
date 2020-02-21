@@ -1,20 +1,15 @@
 import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
-import clsx from 'clsx';
-import mainStyles from '../../views/Style';
+import { CircularProgress } from '@material-ui/core';
 
 const DefaultProgress = (props) => {
     const {
         color,
+        size,
+        className,
     } = props;
-    const classes = mainStyles();
 
     return (
-        <Grid container className={clsx(classes.root)} spacing={3}>
-            <Grid item className={clsx(classes.progress)}>
-                <CircularProgress color={color} />
-            </Grid>
-        </Grid>
+        <CircularProgress color={color} size={size} className={className} />
     );
 };
 

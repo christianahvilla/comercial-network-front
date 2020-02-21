@@ -34,6 +34,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
 
     case authConstants.LOGOUT_SUCCESS:
         localStorage.removeItem('access_token');
+        localStorage.removeItem('reloaded');
         return {
             ...state,
             loading: false,

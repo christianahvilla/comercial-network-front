@@ -58,7 +58,7 @@ const Sidebar = (props) => {
             </div>
             <Divider />
             <List>
-                <Link to={`${path}/home`} className={clsx(classes.link)}>
+                <Link to={`${path}`} className={clsx(classes.link)}>
                     <ListItem button>
                         <ListItemIcon>
                             <HomeIcon />

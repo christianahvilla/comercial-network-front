@@ -20,7 +20,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         // Indent with 4 spaces
@@ -40,6 +41,10 @@
 
         "arrow-body-style": 0,
 
-        "no-useless-escape": 0
+        "no-useless-escape": 0,
+
+        "react-hooks/rules-of-hooks": "off",
+
+        "react-hooks/exhaustive-deps": "off"
     }
 }

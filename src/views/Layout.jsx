@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
@@ -10,10 +10,21 @@ import { logoutActions } from '../actions/AuthActions';
 
 const Layout = () => {
     const classes = mainStyles();
-    const userName = useSelector((state) => state.authState.authenticated.name);
+    const authState = useSelector((state) => state.authState);
     const match = useRouteMatch();
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
+
+    const {
+        userName,
+    } = authState;
+
+    useEffect(() => {
+        if (!localStorage.getItem('reloaded')) {
+            localStorage.setItem('reloaded', true);
+            window.location.reload();
+        }
+    });
 
     const logout = () => {
         dispatch(logoutActions());
