@@ -13,7 +13,6 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import GroupIcon from '@material-ui/icons/Group';
 import StoreIcon from '@material-ui/icons/Store';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
-import BallotIcon from '@material-ui/icons/Ballot';
 import HomeIcon from '@material-ui/icons/Home';
 import { useTheme } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -88,14 +87,6 @@ const Sidebar = (props) => {
                             <LibraryBooksIcon />
                         </ListItemIcon>
                         <ListItemText primary="Categorías" />
-                    </ListItem>
-                </Link>
-                <Link to={`${path}/products`} className={clsx(classes.link)}>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <BallotIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Productos" />
                     </ListItem>
                 </Link>
             </List>

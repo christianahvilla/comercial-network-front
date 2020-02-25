@@ -131,6 +131,10 @@ const mainStyles = makeStyles((theme) => ({
     defaultSubTitle: {
         color: '#707070',
     },
+    chartPaper: {
+        height: '100%',
+        padding: '0px 15px',
+    },
 }));
 
 export default mainStyles;

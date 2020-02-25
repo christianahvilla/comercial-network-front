@@ -10,14 +10,14 @@ import { logoutActions } from '../actions/AuthActions';
 
 const Layout = () => {
     const classes = mainStyles();
-    const authState = useSelector((state) => state.authState);
+    const authenticated = useSelector((state) => state.authState.authenticated);
     const match = useRouteMatch();
     const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
 
     const {
-        userName,
-    } = authState;
+        name,
+    } = authenticated;
 
     useEffect(() => {
         if (!localStorage.getItem('reloaded')) {
@@ -45,7 +45,7 @@ const Layout = () => {
             <Sidebar
                 open={open}
                 handleDrawerClose={handleDrawerClose}
-                userName={userName}
+                userName={name}
                 path={match.path}
                 logout={logout}
             />

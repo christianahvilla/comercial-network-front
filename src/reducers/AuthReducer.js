@@ -19,6 +19,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
 
     case authConstants.LOGIN_SUCCESS:
         localStorage.setItem('access_token', action.payload.token);
+        localStorage.setItem('user_name', action.payload.name);
         return { ...state, authenticated: action.payload, loading: false };
 
     case authConstants.LOGIN_ERROR:
@@ -35,6 +36,7 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case authConstants.LOGOUT_SUCCESS:
         localStorage.removeItem('access_token');
         localStorage.removeItem('reloaded');
+        localStorage.removeItem('name');
         return {
             ...state,
             loading: false,
