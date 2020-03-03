@@ -10,7 +10,6 @@ const Body = (props) => {
         <Switch>
             <Route exact path={`${path}/categories`} component={Category} />
             <Route exact path={`${path}/shops`} component={NotFound} />
-            <Route exact path={`${path}/products`} component={NotFound} />
             <Route exact path={`${path}/users`} component={NotFound} />
             <Route exact path={`${path}`} component={Home} />
             <Route path="*" component={NotFound} />
