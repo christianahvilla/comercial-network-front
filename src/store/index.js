@@ -16,14 +16,14 @@ const loggerMiddleware = createLogger();
 
 const pReducer = persistReducer(persistConfig, rootReducer);
 
-// export const store = createStore(
-//     pReducer,
-//     compose(
-//         applyMiddleware(thunkMiddleware),
-//         window.__REDUX_DEVTOOLS_EXTENSION__
-//             && window.__REDUX_DEVTOOLS_EXTENSION__(),
-//     ),
-// );
+/* export const store = createStore(
+    pReducer,
+    compose(
+        applyMiddleware(thunkMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__
+            && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    ),
+); */
 
 export const store = createStore(pReducer, applyMiddleware(thunkMiddleware, loggerMiddleware));
 
