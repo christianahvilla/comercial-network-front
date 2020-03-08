@@ -8,6 +8,7 @@ const DefaultTable = (props) => {
         onUpdate,
         onAdd,
         data,
+        actions,
     } = props;
 
     const options = {
@@ -74,6 +75,7 @@ const DefaultTable = (props) => {
             editable={editable}
             options={options}
             localization={localization}
+            actions={actions}
         />
     );
 };

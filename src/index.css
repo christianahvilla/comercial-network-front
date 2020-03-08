@@ -19,6 +19,10 @@ div#root {
     color: #e53935!important;
 }
 
+.MuiIconButton-colorInherit[title='Reiniciar contraseña'] {
+    color: #E7C40F!important;
+}
+
 .MuiIconButton-colorInherit {
     color: #707070!important;
 }
