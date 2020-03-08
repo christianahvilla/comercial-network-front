@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint camelcase: ["error", {ignoreDestructuring: true}] */
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import clsx from 'clsx';
@@ -72,15 +74,7 @@ const User = () => {
         {
             title: 'Rol',
             field: 'role',
-            lookup: { 'Admin': 'Administrador', 'Merchant': 'Comerciante' },
-        },
-    ];
-
-    const actions = [
-        {
-            icon: 'email',
-            tooltip: 'Reiniciar contraseña',
-            onClick: (event, rowData) => onPasswordReset(rowData),
+            lookup: { Admin: 'Administrador', Merchant: 'Comerciante' },
         },
     ];
 
@@ -90,7 +84,9 @@ const User = () => {
     };
 
     const onAdd = async (newData) => {
-        const { name, last_name, email, phone, role } = newData;
+        const {
+            name, last_name, email, phone, role,
+        } = newData;
         const newUser = {
             id: uuid(),
             password: 'password',
@@ -104,7 +100,9 @@ const User = () => {
     };
 
     const onUpdate = (newData) => {
-        const { id, name, last_name, email, phone, role } = newData;
+        const {
+            id, name, last_name, email, phone, role,
+        } = newData;
         const user = {
             name,
             last_name,
@@ -116,7 +114,9 @@ const User = () => {
     };
 
     const onPasswordReset = (newData) => {
-        const { id, name, last_name, email, phone, role } = newData;
+        const {
+            id, name, last_name, email, phone, role,
+        } = newData;
         const user = {
             password: 'password',
             name,
@@ -127,6 +127,14 @@ const User = () => {
         };
         dispacth(userUpdateActions(user, id));
     };
+
+    const actions = [
+        {
+            icon: 'email',
+            tooltip: 'Reiniciar contraseña',
+            onClick: (event, rowData) => onPasswordReset(rowData),
+        },
+    ];
 
     return (
         <div className={clsx(classes.root)}>

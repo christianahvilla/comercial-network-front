@@ -1,0 +1,14 @@
+# production.yml
+
+
+version: '3.5'
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile-production
+        ports:
+            - 80:80
+        environment:
+            - NODE_ENV=production
+            - REACT_APP_API_URL=http://localhost:8000/api
