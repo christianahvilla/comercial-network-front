@@ -15,7 +15,6 @@
     "date-fns": "2.0.0-beta.2",
     "devextreme": "19.2.6",
     "devextreme-react": "^19.2.6",
-    "env-cmd": "^10.0.1",
     "material-table": "^1.57.2",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.9.0",
@@ -31,8 +30,11 @@
     "uuid": "^3.4.0"
   },
   "scripts": {
-    "start": "env-cmd -f .env.development react-scripts start",
-    "build": "env-cmd -f .env.production react-scripts build",
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
+    "dev:up": "docker-compose -f docker-compose.yml -f dev.yml up",
+    "dev:build": "docker-compose -f docker-compose.yml -f dev.yml build",
+    "prod:build": "docker-compose -f docker-compose.yml -f production.yml  build",
+    "prod:up": "docker-compose -f docker-compose.yml -f production.yml up -d --build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}' --fix",
@@ -41,8 +43,7 @@
   "lint-staged": {
     "**/*.js": [
       "eslint --fix",
-      "prettier-eslint --write",
-      "git add"
+      "prettier-eslint --write"
     ]
   },
   "husky": {
