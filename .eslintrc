@@ -24,6 +24,14 @@
         "react-hooks"
     ],
     "rules": {
+        "jsx-a11y/label-has-associated-control": [ 2, {
+            "components": [ "Label" ],
+            "required": {
+                "some": [ "nesting", "id" ]
+            },
+            "allowChildren": false
+        }],
+        
         // Indent with 4 spaces
         "indent": ["error", 4],
 
