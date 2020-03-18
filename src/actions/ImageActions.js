@@ -37,7 +37,7 @@ export const imageSaveActions = (image) => async (dispatch) => {
         const response = await imageApi.saveImage(image);
         dispatch(saveImageSuccess(response.data));
     } catch (error) {
-        dispatch(saveImageError(error.response.status));
+        dispatch(saveImageError(error.stack));
     }
 };
 
@@ -47,6 +47,6 @@ export const imageDeleteActions = (id) => async (dispatch) => {
         const response = await imageApi.deleteImage(id);
         dispatch(deleteImageSuccess(response.data));
     } catch (error) {
-        dispatch(deleteImageError(error.response.status));
+        dispatch(deleteImageError(error.stack));
     }
 };

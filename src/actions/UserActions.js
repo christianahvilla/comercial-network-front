@@ -67,7 +67,7 @@ export const userUpdateActions = (user, id) => async (dispatch) => {
         const response = await userApi.updateUser(user, id);
         dispatch(updateUserSuccess(response.data));
     } catch (error) {
-        dispatch(updateUserError(error.response.status));
+        dispatch(updateUserError(error.stack));
     }
 };
 
@@ -77,7 +77,7 @@ export const userFetchActions = () => async (dispatch) => {
         const response = await userApi.getUsers();
         dispatch(fetchUserSuccess(response.data));
     } catch (error) {
-        dispatch(fetchUserError(error.response.status));
+        dispatch(fetchUserError(error.stack));
     }
 };
 
@@ -87,7 +87,7 @@ export const userSaveActions = (user) => async (dispatch) => {
         const response = await userApi.saveUser(user);
         dispatch(saveUserSuccess(response.data));
     } catch (error) {
-        dispatch(saveUserError(error.response.status));
+        dispatch(saveUserError(error.stack));
     }
 };
 
@@ -97,6 +97,6 @@ export const userDeleteActions = (id) => async (dispatch) => {
         const response = await userApi.deleteUser(id);
         dispatch(deleteUserSuccess(response.data));
     } catch (error) {
-        dispatch(deleteUserError(error.response.status));
+        dispatch(deleteUserError(error.stack));
     }
 };

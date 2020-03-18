@@ -40,7 +40,7 @@ export const loginActions = (credentials) => async (dispatch) => {
         };
         dispatch(loginSuccess(user));
     } catch (error) {
-        dispatch(loginError(error.response.status));
+        dispatch(loginError(error.stack));
     }
 };
 
@@ -50,6 +50,6 @@ export const logoutActions = () => async (dispatch) => {
         const response = await authApi.logout();
         dispatch(logoutSuccess(response.data));
     } catch (error) {
-        dispatch(logoutError(error.response.status));
+        dispatch(logoutError(error.stack));
     }
 };

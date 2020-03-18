@@ -67,7 +67,7 @@ export const shopUpdateActions = (shop, id) => async (dispatch) => {
         const response = await shopApi.updateShop(shop, id);
         dispatch(updateShopSuccess(response.data));
     } catch (error) {
-        dispatch(updateShopError(error.response.status));
+        dispatch(updateShopError(error.stack));
     }
 };
 
@@ -77,7 +77,7 @@ export const shopFetchActions = () => async (dispatch) => {
         const response = await shopApi.getShops();
         dispatch(fetchShopSuccess(response.data));
     } catch (error) {
-        dispatch(fetchShopError(error.response.status));
+        dispatch(fetchShopError(error.stack));
     }
 };
 
@@ -87,7 +87,7 @@ export const shopSaveActions = (shop) => async (dispatch) => {
         const response = await shopApi.saveShop(shop);
         dispatch(saveShopSuccess(response.data));
     } catch (error) {
-        dispatch(saveShopError(error.response.status));
+        dispatch(saveShopError(error.stack));
     }
 };
 
@@ -97,6 +97,6 @@ export const shopDeleteActions = (id) => async (dispatch) => {
         const response = await shopApi.deleteShop(id);
         dispatch(deleteShopSuccess(response.data));
     } catch (error) {
-        dispatch(deleteShopError(error.response.status));
+        dispatch(deleteShopError(error.stack));
     }
 };

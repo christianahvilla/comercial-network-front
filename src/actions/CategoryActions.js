@@ -67,7 +67,7 @@ export const categoryUpdateActions = (category, id) => async (dispatch) => {
         const response = await categoryApi.updateCategory(category, id);
         dispatch(updateCategorySuccess(response.data));
     } catch (error) {
-        dispatch(updateCategoryError(error.response.status));
+        dispatch(updateCategoryError(error.stack));
     }
 };
 
@@ -77,7 +77,7 @@ export const categoryFetchActions = () => async (dispatch) => {
         const response = await categoryApi.getCategories();
         dispatch(fetchCategorySuccess(response.data));
     } catch (error) {
-        dispatch(fetchCategoryError(error.response.status));
+        dispatch(fetchCategoryError(error.stack));
     }
 };
 
@@ -87,7 +87,7 @@ export const categorySaveActions = (category) => async (dispatch) => {
         const response = await categoryApi.saveCategory(category);
         dispatch(saveCategorySuccess(response.data));
     } catch (error) {
-        dispatch(saveCategoryError(error.response.status));
+        dispatch(saveCategoryError(error.stack));
     }
 };
 
@@ -97,6 +97,6 @@ export const categoryDeleteActions = (id) => async (dispatch) => {
         const response = await categoryApi.deleteCategory(id);
         dispatch(deleteCategorySuccess(response.data));
     } catch (error) {
-        dispatch(deleteCategoryError(error.response.status));
+        dispatch(deleteCategoryError(error.stack));
     }
 };
