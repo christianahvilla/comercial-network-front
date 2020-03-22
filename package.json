@@ -24,6 +24,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.1",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
@@ -33,8 +34,9 @@
     "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
     "dev:up": "docker-compose -f docker-compose.yml -f dev.yml up",
     "dev:build": "docker-compose -f docker-compose.yml -f dev.yml build",
-    "prod:build": "docker-compose -f docker-compose.yml -f production.yml  build",
-    "prod:up": "docker-compose -f docker-compose.yml -f production.yml up -d --build",
+    "build": "react-scripts build",
+    "prod:build": "docker-compose -f docker-compose.yml -f prod.yml  build",
+    "prod:up": "docker-compose -f docker-compose.yml -f prod.yml up -d --build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx}' --fix",
@@ -80,7 +82,6 @@
     "eslint-plugin-react-hooks": "^2.4.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.7",
-    "prettier-eslint-cli": "^5.0.0",
-    "remote-redux-devtools": "^0.5.16"
+    "prettier-eslint-cli": "^5.0.0"
   }
 }
