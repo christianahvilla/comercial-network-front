@@ -28,13 +28,14 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "env-cmd": "^10.0.1"
   },
   "scripts": {
     "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
     "dev:up": "docker-compose -f docker-compose.yml -f dev.yml up",
     "dev:build": "docker-compose -f docker-compose.yml -f dev.yml build",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env.production react-scripts build",
     "prod:build": "docker-compose -f docker-compose.yml -f prod.yml  build",
     "prod:up": "docker-compose -f docker-compose.yml -f prod.yml up -d --build",
     "test": "react-scripts test",
